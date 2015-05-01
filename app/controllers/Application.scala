@@ -9,4 +9,8 @@ object Application extends Controller {
     Ok(views.html.index("Welcome to PlayScalaAndroid"))
   }
 
+  def clientMessage(name: String, text: String) = Action { implicit request =>
+
+  }
+
  }
