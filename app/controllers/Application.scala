@@ -32,10 +32,10 @@ object Application extends Controller {
     future.map { result => {
       result match {
         case car: Car => Ok(Json.toJson(car))
-        case NotFound => Ok(Car("not_found", "not_found"))
+        case NotFound => Ok(Json.toJson(Car("not_found", "not_found")))
       }
     }
-    }
+    }.recover{case throwable => Ok(Json.toJson(Car("not_found", "not_found")))}
   }
 
  }
