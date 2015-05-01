@@ -28,7 +28,7 @@ object Application extends Controller {
       (JsPath \ "url").write[String]
     ) (unlift(Client.Car.unapply _))
 
-  def clientMessage(car: String) = Action.async { implicit request =>
+  def info(car: String) = Action.async { implicit request =>
     import actors.CarStore._
     implicit val timeout = Timeout(5 seconds)
     val future: Future[Result] = (Global.carStore ? GetCar(car)).mapTo[Result]

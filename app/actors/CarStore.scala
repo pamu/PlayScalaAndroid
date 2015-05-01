@@ -17,10 +17,14 @@ object Client {
   trait Result
   case object NotFound extends Result
   case class Car(name: String, url: String) extends Result
+  case class CarInfoHtml(name: String, html: String) extends Result
+  case class CarInfo(name: String, text: String) extends Result
 }
 
 class CarStore extends Actor with ActorLogging {
   var cars = Map.empty[String, String]
+  var info = Map.empty[String, String]
+
   import CarStore._
   override def receive = {
     case AddCar(name, url) =>

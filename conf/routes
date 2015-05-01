@@ -3,7 +3,7 @@
 # ~~~~
 
 GET     /                           controllers.Application.index()
-GET     /clientMessage              controllers.Application.clientMessage(car: String)
+GET     /info                       controllers.Application.info(car: String)
 
 
 # Map static resources from the /public folder to the /assets URL path
