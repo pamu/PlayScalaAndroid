@@ -1,5 +1,6 @@
 package actors
 
+import actors.Client.Car
 import akka.actor.{ActorLogging, Actor}
 
 /**
@@ -31,8 +32,10 @@ class CarStore extends Actor with ActorLogging {
         cars -= name
       }
     case GetCar(name) =>
+      log.info(s"car request: car $name")
       if (cars contains name) {
-        sender ! cars(name)
+        sender ! Car(name, cars(name))
+        log.info(s"sent ${cars(name)}")
       } else {
         sender ! Client.NotFound
       }
