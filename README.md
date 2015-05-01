@@ -1,6 +1,18 @@
 # PlayScalaAndroid
 Play framework backend to the ScalaAndroid app written in Scala.
 
+### To run this project
+
+```
+    git clone https://github.com/pamu/PlayScalaAndroid.git
+```
+
+In the project root folder run
+
+```
+    ./activator run
+```
+
 ### Query
 ```
     http://playscalaandroid.herokuapp.com/info?car=swift
