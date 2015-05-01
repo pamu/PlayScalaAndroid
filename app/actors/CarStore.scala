@@ -13,7 +13,9 @@ object CarStore {
 }
 
 object Client {
-  case object NotFound
+  trait Result
+  case object NotFound extends Result
+  case class Car(name: String, url: String) extends Result
 }
 
 class CarStore extends Actor with ActorLogging {
